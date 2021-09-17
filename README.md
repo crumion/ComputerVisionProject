@@ -3,7 +3,7 @@
 
 ## Dataset
 
-I will be using ImageNet for my dataset. ImageNet contains over 14 million annotated images across over 20,000 categories. Many proposed models for my project are trained on ImageNet. ImageNet has built arguments to split the dataset into training, validation, and testing sets, though these will likely not be as relevant to my project.
+I will be using ImageNet for my dataset. ImageNet contains over 14 million annotated images across over 20,000 categories. Many proposed models for my project are trained on ImageNet. ImageNet has built arguments to split the dataset into training, validation, and testing sets, though these will likely not be as relevant to my project. I have already pulled the dataset onto my local machine for previous work.
 (source: https://en.wikipedia.org/wiki/ImageNet)
 
 ## Proposed Solution
