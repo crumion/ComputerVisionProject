@@ -4,6 +4,10 @@
 
 After downloading the images, I had to rename files to reflect the images accordingly. Additionally, I set up local directories so I could iterate over them easily. I also fixed file extensions, renaming all extensions to reflect .jpg (some were jpeg).
 
+After some initial data preparations, I started to run some preliminary models. More particularly, I tested my images using MobileNetV2 to observe some baseline predictions. Some images were incorrectly classified, so I removed them from the dataset.
+
+After running some of the images, I ran some adversarial attacks and observed how the model reacted. Consequently, I used Grad-CAM masking to focus the perturbations onto the last convolutional layer. Explainations and details in the following section.
+
 ## Justification of Why
 
 ### Softmax Scores ≠ Probability
