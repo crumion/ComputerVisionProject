@@ -8,7 +8,7 @@ After some initial data preparations, I started to run some preliminary models. 
 
 After running some of the images, I ran some adversarial attacks and observed how the model reacted. Consequently, I used Grad-CAM masking to focus the perturbations onto the last convolutional layer. Explainations and details in the following section.
 
-## Justification of Why
+## Justification of Methods
 
 ### Softmax Scores ≠ Probability
 I decided to start with MobileNetV2 in evaluating its own trustworthiness. For my project, I'm looking for more explainability than merely a "confidence" score. These confidence scores are simply softmax scores, which are often described as probabilities. However, the softmax score is not a probability, so we must be more sophisticated in the ways we evaluate our models.
