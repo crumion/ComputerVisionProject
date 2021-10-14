@@ -35,6 +35,8 @@ I would like to use Grad-CAMs to focus perturbations to where the model is looki
 ## Preliminary Results
 <img width="600" alt="perturbations_graph" src="https://user-images.githubusercontent.com/30506411/137355770-3873f5a2-1cc1-4f83-a046-dca35aa28c76.png">
 
+This graph shows how the model's confidence scores changes at different epsilon levels. Perhaps the most intriguing part is the model gets more confidence with its incorrect classifications. Ultimately, this graphic shows that the confidence scores are not a reliable metric. 
+
 ## Grad-CAM Example
 
 ### First Convolutional Layer
