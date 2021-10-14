@@ -6,7 +6,7 @@ After downloading the images, I had to rename files to reflect the images accord
 2. A short justification why you decided to use these algorithms
 
 ### Softmax Scores ≠ Probability
-I decdied to start with MobileNetv2 in evaluating its own trustworthiness. For my project, I'm looking for more explainability than merely a "confidence" score. These confidence scores are simply softmax scores, which are often described as probabilities. However, the softmax score is not a probability, so we must be more sophisticated in the ways we evaluate our models.
+I decdied to start with MobileNetV2 in evaluating its own trustworthiness. For my project, I'm looking for more explainability than merely a "confidence" score. These confidence scores are simply softmax scores, which are often described as probabilities. However, the softmax score is not a probability, so we must be more sophisticated in the ways we evaluate our models.
 
 ### Image Alterations
 Since softmax scores are unreliable and don't necessarily reflect the model's prediction probabilty, we need to find other ways of evaluating the model. One approach is to alter the image, and observe differences in softmax scores. However, since these softmax scores do not necessarily reflect the model's probability, this approach wouldn't be particularly as useful. Instead, I would like to progressively alter the image until the model makes an incorrect classification. This method would test each model's robustness given a certain class.
