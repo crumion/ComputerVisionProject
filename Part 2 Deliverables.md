@@ -5,7 +5,7 @@ After downloading the images, I had to rename files to reflect the images accord
 
 2. A short justification why you decided to use these algorithms
 
-### Softmax Scores != Probability
+### Softmax Scores ≠ Probability
 I decdied to start with MobileNetv2 in evaluating its own trustworthiness. For my project, I'm looking for more explainability than merely a "confidence" score. These confidence scores are simply softmax scores, which are often described as probabilities. However, the softmax score is not a probability, so we must be more sophisticated in the ways we evaluate our models.
 
 ### Image Alterations
