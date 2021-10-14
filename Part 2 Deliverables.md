@@ -48,6 +48,7 @@ I would like to use Grad-CAMs to focus perturbations to where the model is looki
 ## Push current codes in conjunction with report
 
 Current codes are pushed in the repo.
+Perturbation.py reflects entire image perturbations.
 
 
 ## References
