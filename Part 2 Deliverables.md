@@ -42,7 +42,7 @@ This graph shows how the model's confidence scores changes at different epsilon 
 ### First Convolutional Layer
 <img width="468" alt="bullfrog1" src="https://user-images.githubusercontent.com/30506411/137356367-55cba57f-8d8c-42b6-8f56-8bf0706effd9.png">
 
-### Hand Picked in Between Samples
+### Hand Picked in Between Layers
 <img width="468" alt="bullfrog2" src="https://user-images.githubusercontent.com/30506411/137356404-56d1e07d-e633-4682-8c2a-97d933dff98a.png">
 
 <img width="468" alt="bullfrog3" src="https://user-images.githubusercontent.com/30506411/137356423-0ad0e49d-93c8-4477-8287-166d267b8d39.png">
