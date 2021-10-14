@@ -14,7 +14,8 @@ Since softmax scores are unreliable and don't necessarily reflect the model's pr
 ### Perturbations
 One of the first common adversarial attacks on nueral networks uses Fast Gradient Signed Method (FGSM), first proposed by Goodfellow et al. FGSM uses the gradients of the loss function with respect to the image image. 
 
-<img width="317" alt="Screen Shot 2021-10-14 at 1 53 44 PM" src="https://user-images.githubusercontent.com/30506411/137370539-668012b2-bcdf-4317-97c3-5d0a3b553cd4.png">
+<img width="523" alt="Screen Shot 2021-10-14 at 1 55 57 PM" src="https://user-images.githubusercontent.com/30506411/137370941-35ba6fbc-56a5-4b86-b1b6-a5c4ce5a4ba1.png">
+
 
 
 ### Grad-CAM
