@@ -25,7 +25,7 @@ I would like to use Grad-CAMs to focus perturbations to where the model is looki
 
 ## Grad-CAM Example
 
-### Last Convolutional Layer
+### First Convolutional Layer
 <img width="468" alt="bullfrog1" src="https://user-images.githubusercontent.com/30506411/137356367-55cba57f-8d8c-42b6-8f56-8bf0706effd9.png">
 
 ### Hand Picked in Between Samples
@@ -33,7 +33,7 @@ I would like to use Grad-CAMs to focus perturbations to where the model is looki
 
 <img width="468" alt="bullfrog3" src="https://user-images.githubusercontent.com/30506411/137356423-0ad0e49d-93c8-4477-8287-166d267b8d39.png">
 
-### First Convolutional Layer
+### Last Convolutional Layer
 <img width="468" alt="bullfrog4" src="https://user-images.githubusercontent.com/30506411/137356445-b2f51f14-5a61-4f7b-b243-5e0e324499dc.png">
 
 
