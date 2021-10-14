@@ -14,7 +14,7 @@ I would like to use Grad-CAMs to focus perturbations to where the model is looki
 
 
 3. A few illustrations demonstrating how your methods processed training data, for instance segmentation results
-<img width="468" alt="perturbations_graph" src="https://user-images.githubusercontent.com/30506411/137355770-3873f5a2-1cc1-4f83-a046-dca35aa28c76.png">
+<img width="600" alt="perturbations_graph" src="https://user-images.githubusercontent.com/30506411/137355770-3873f5a2-1cc1-4f83-a046-dca35aa28c76.png">
 
 
 4. Push current codes in conjunction with report
