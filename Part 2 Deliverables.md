@@ -11,6 +11,9 @@ I decdied to start with MobileNetV2 in evaluating its own trustworthiness. For m
 ### Image Alterations
 Since softmax scores are unreliable and don't necessarily reflect the model's prediction probabilty, we need to find other ways of evaluating the model. One approach is to alter the image, and observe differences in softmax scores. However, since these softmax scores do not necessarily reflect the model's probability, this approach wouldn't be particularly as useful. Instead, I would like to progressively alter the image until the model makes an incorrect classification. This method would test each model's robustness given a certain class.
 
+### Perturbations
+One of the first common adversarial attacks on nueral networks uses Fast Gradient Signed Method (FGSM), first proposed by Goodfellow et al. FGSM uses the gradients of the loss function with respect to the image image. 
+
 ### Grad-CAM
 Grad-CAMs have become a popular way to evaluate what each model is "looking" at. Grad-CAMs generate heatmaps using the last convolutional layer. These heatmaps can provide practitioners a visual that describes where the model is focusing its attention at the moment before it makes its prediction.
 
@@ -39,4 +42,8 @@ I would like to use Grad-CAMs to focus perturbations to where the model is looki
 
 4. Push current codes in conjunction with report
 
+
+## References
+* Cite grad-cam paper https://arxiv.org/abs/1610.02391
+* Explaining and Harnessing Adversarial Examples https://arxiv.org/abs/1412.6572
 
