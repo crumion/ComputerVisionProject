@@ -33,7 +33,7 @@ Grad-CAMs have become a popular way to evaluate what each model is "looking" at.
 ## Preliminary Results
 <img width="600" alt="perturbations_graph" src="https://user-images.githubusercontent.com/30506411/137355770-3873f5a2-1cc1-4f83-a046-dca35aa28c76.png">
 
-This graph shows how the model's confidence scores changes at different epsilon levels. Perhaps the most intriguing part is the model gets more confidence with its incorrect classifications. Ultimately, this graphic shows that the confidence scores are not a reliable metric. 
+This graph shows how the model's confidence scores changes at different epsilon levels. Perhaps the most intriguing part is the model gets more "confident" with its incorrect classifications. Ultimately, this graphic shows that the confidence scores are not a reliable metric. 
 
 ## Grad-CAM Example
 
@@ -52,8 +52,10 @@ This graph shows how the model's confidence scores changes at different epsilon 
 ## Push current codes in conjunction with report
 
 Current codes are pushed in the repo.
-Perturbation.py reflects entire image perturbations.
+Perturbation.py reflects entire image perturbations. Repo will be updated to relfect additional updates and changes to the project.
 
+## Acknowledgment
+This work is an adaptation of an ongoing project through the Computer Vision Research Lab at the University of Notre Dame, advised by Dr. Adam Czajka.
 
 ## References
 [1]	R. R. Selvaraju, M. Cogswell, A. Das, R. Vedantam, D. Parikh, and D. Batra, “Grad-CAM: Visual Explanations from Deep Networks via Gradient-based Localization,” Int. J. Comput. Vis., vol. 128, no. 2, pp. 336–359, Feb. 2020, doi: 10.1007/s11263-019-01228-7.
