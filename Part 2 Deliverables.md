@@ -50,7 +50,7 @@ This graph shows how the model's confidence scores changes at different epsilon 
 
 This heatmap is used to increase perturbation intensity around the object.
 
-<img width="468" alt="Picture1" src="https://user-images.githubusercontent.com/30506411/137511787-9bc51c3e-4861-4d88-9900-4abe1b18fc63.png">
+<img width="600" alt="Picture1" src="https://user-images.githubusercontent.com/30506411/137511787-9bc51c3e-4861-4d88-9900-4abe1b18fc63.png">
 
 Some preliminary results on a single image.
 
