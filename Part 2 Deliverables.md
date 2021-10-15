@@ -48,6 +48,7 @@ This graph shows how the model's confidence scores changes at different epsilon 
 ### Last Convolutional Layer
 <img width="468" alt="bullfrog4" src="https://user-images.githubusercontent.com/30506411/137356445-b2f51f14-5a61-4f7b-b243-5e0e324499dc.png">
 
+This heatmap is used to increase perturbation intensity around the object.
 
 ## Push current codes in conjunction with report
 
