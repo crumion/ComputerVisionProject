@@ -35,7 +35,7 @@ Grad-CAMs have become a popular way to evaluate what each model is "looking" at.
 
 This graph shows how the model's confidence scores changes at different epsilon levels. Perhaps the most intriguing part is the model gets more "confident" with its incorrect classifications. Ultimately, this graphic shows that the confidence scores are not a reliable metric. 
 
-## Grad-CAM Example
+## Grad-CAM Heatmaps
 
 ### First Convolutional Layer
 <img width="468" alt="bullfrog1" src="https://user-images.githubusercontent.com/30506411/137356367-55cba57f-8d8c-42b6-8f56-8bf0706effd9.png">
@@ -49,6 +49,10 @@ This graph shows how the model's confidence scores changes at different epsilon 
 <img width="468" alt="bullfrog4" src="https://user-images.githubusercontent.com/30506411/137356445-b2f51f14-5a61-4f7b-b243-5e0e324499dc.png">
 
 This heatmap is used to increase perturbation intensity around the object.
+
+<img width="468" alt="Picture1" src="https://user-images.githubusercontent.com/30506411/137511787-9bc51c3e-4861-4d88-9900-4abe1b18fc63.png">
+
+Some preliminary results on a single image.
 
 ## Push current codes in conjunction with report
 
