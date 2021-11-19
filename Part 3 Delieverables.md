@@ -9,7 +9,7 @@ My goal is to evaluate the "robustness" or "trustworthiness" of a trained model 
 
 The model correctly classified 24.11% of the validation images. Some of the images were incorrectly formatted which threw a value error, so I added exception handling to circumnavigate this error. 168 images were not tested and thrown out because of this error. Of the 10,000 images, 2411 remained correctly formatted, classified, and ready for adversarial attacks.
 
-I used the Fast Gradient Sign Method to generate adversarial attacks on each image. I started at 0 epsilon and used step sizes of 0.00001 until the model predicted an incorrect classification. Since this was a linear search, my script took days to run only a fraction of the data set (I have a CRC long script running it as of writing. My first script broke over an input ValueError, but I have committed the results I got up until that point). Instead of taking a smaller sample size, I decided to use a faster search algorithm. I wrote a bisectional method algorithm to find the smallest epsilon, which resulted in much faster speeds [3]. The method involved finding the midpoint of an upper and lower bound, and then testing which side of the bounds a failure occurs. Depending on the success or failure of the prediction, the lower or upper bound would become the middle bound, and a new midpoint would be computed. The algorithm would repeat until the difference between the upper and lower bounds was less than 0.00001 (step value). I was able to run the model over the entire validation set in only 6 hours. The epsilon values differed drastically, ranging from 0.000019 to 0.95. This was to be expected, because each image and classification is completely different. I averaged the epsilon values for each class, so I could access class robustness.
+I used the Fast Gradient Sign Method to generate adversarial attacks on each image. I started at 0 epsilon and used step sizes of 0.00001 until the model predicted an incorrect classification. Since this was a linear search, my script took days to run only a fraction of the data set (I have a CRC long script running it as of writing. My first script broke over an input ValueError, but I have committed the results I got up until that point). Instead of taking a smaller sample size, I decided to use a faster search algorithm. I wrote a bisectional method algorithm to find the smallest epsilon, which resulted in much faster speeds [1]. The method involved finding the midpoint of an upper and lower bound, and then testing which side of the bounds a failure occurs. Depending on the success or failure of the prediction, the lower or upper bound would become the middle bound, and a new midpoint would be computed. The algorithm would repeat until the difference between the upper and lower bounds was less than 0.00001 (step value). I was able to run the model over the entire validation set in only 6 hours. The epsilon values differed drastically, ranging from 0.000019 to 0.95. This was to be expected, because each image and classification is completely different. I averaged the epsilon values for each class, so I could access class robustness.
 
 The most "sensitive" class was grasshopper, followed by fly and pizza (0.0000214440918, 0.000431060791, 0.0008377893066). The most "robust" classes were poncho, sock, and confectionery (0.46, 0.37, 0.31). These values tell us the average epsilon value for each class to fail (predict an incorrect classification). These show how far we have to travel in the direction of the gradient (signed method) to maximize the loss and fail the model. If we can easily fool a model, we should not readily trust it's ability to predict on new test sets.
 
@@ -22,7 +22,7 @@ Initial trials of the Object and Background perturbations were inconclusive. Cha
 
 Similarly to Grad-Cams, the gradient can also be visualized as a heatmap. This could be used as a replacement of Grad-Cams to estimate what the network is "looking" at. We wish to find a resemblance to how humans would classify objects. For example, we expect heatmaps to be concentrated around the face to classify a human. For future work, we will attempt to measure the compactness of a heatmap. The heatmaps of a bullfrog above show the differences in concentration the network places on an object (though these are Grad-Cams taken at different convolutional stages). We feel confident that a dense heatmap has higher robustness than one that is spread out, since there are likely only a few close features essential to classification. These concentrations can also be compared to Grad-Cams to see if the last convolutional layer agrees with the gradient (should be the same).
 
-Another component of the pipeline that must be fixed before the final results is the code. The committed code is functional but not optimal. First, functions and classes need to be made and will improve code readability. Second, the code output to text files should be formatted better. I had to spend time data wrangling which could be prevented by better txt outputs. Third, the way the bisectional algorithm is written there is no check to see if the last prediction is equal to the first prediction. In some cases, the final epsilon value will not fully break the model. In these cases, the step value (0.00001) must be added to obtain the true breaking epsilon value. A simple logic statement after the loop will resolve this issue. I would also like to try other root finding methods to see if I can speed up the process. Upon review, the secant method looks promising to try, althrough there are a handful of potential methods [4]. Finally, the code does not stop adversarial attacks for incorrectly classified images. This will greatly improve the speed of the model and test only the necessary images. As always, the code could be threaded or optimized for GPU use. This will allow faster results and more scalable testing of the trustworthy pipeline.
+Another component of the pipeline that must be fixed before the final results is the code. The committed code is functional but not optimal. First, functions and classes need to be made and will improve code readability. Second, the code output to text files should be formatted better. I had to spend time data wrangling which could be prevented by better txt outputs. Third, the way the bisectional algorithm is written there is no check to see if the last prediction is equal to the first prediction. In some cases, the final epsilon value will not fully break the model. In these cases, the step value (0.00001) must be added to obtain the true breaking epsilon value. A simple logic statement after the loop will resolve this issue. I would also like to try other root finding methods to see if I can speed up the process. Upon review, the secant method looks promising to try, althrough there are a handful of potential methods [2]. Finally, the code does not stop adversarial attacks for incorrectly classified images. This will greatly improve the speed of the model and test only the necessary images. As always, the code could be threaded or optimized for GPU use. This will allow faster results and more scalable testing of the trustworthy pipeline.
 
 ## Relevant Code and Result Files
 
@@ -46,16 +46,11 @@ This file reflects the relevent classification flips per image with the previous
 ### Average Epsilon Failure by Each Class
 ![1](https://user-images.githubusercontent.com/30506411/142560750-b72dfbba-218e-4f89-a4f2-48b3094357cc.png)
 
-
 ### Average Epsilon Failure by Each Class (zoomed on uniform)
 ![2](https://user-images.githubusercontent.com/30506411/142560762-ad90ae3e-b2dd-49f9-a715-7e485c531e37.png)
 
-
-
 ### Top Most "Sensitive" Classes
 ![3](https://user-images.githubusercontent.com/30506411/142560770-523c6744-9436-44d8-8800-005a50ab804d.png)
-
-
 
 ### Top 10 Most "Robust" Classes
 ![4](https://user-images.githubusercontent.com/30506411/142560782-ef542084-c3fd-48b4-b387-2e4478cf44de.png)
@@ -72,25 +67,20 @@ This file reflects the relevent classification flips per image with the previous
 ### Object Perturbations: First Incorrect Classification
 ![8](https://user-images.githubusercontent.com/30506411/142565216-448c6adf-80ec-4a71-9d30-28f951f082df.png)
 
-
 ### Object Perturbations: Changes in "Confidence"
 ![9](https://user-images.githubusercontent.com/30506411/142565223-44af7634-5a41-436a-8ab9-d9e33973909f.png)
-
-
 
 ### Regular Perturbations: Changes in "Confidence"
 ![10](https://user-images.githubusercontent.com/30506411/142565227-21cfe246-689a-4349-8766-e9b56fce964a.png)
 
-
 ### Background Perturbations: Changes in "Confidence"
 ![12](https://user-images.githubusercontent.com/30506411/142565296-4b16c580-0707-412d-9a76-fd7c92238c24.png)
-
 
 ### Regular Perturbation: First Incorrect Classification per Image
 ![11](https://user-images.githubusercontent.com/30506411/142565237-312eec6a-8c8b-4bfc-8ca6-def26e2a1059.png)
 
 
-
 ## References
 [1] https://en.wikipedia.org/wiki/Bisection_method
+
 [2] https://en.wikipedia.org/wiki/Root-finding_algorithms
