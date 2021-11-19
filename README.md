@@ -3,8 +3,9 @@
 
 ## Dataset
 
-I will be using ImageNet for my dataset. ImageNet contains over 14 million annotated images across over 20,000 categories. Many proposed models for my project are trained on ImageNet. ImageNet has built arguments to split the dataset into training, validation, and testing sets, though these will likely not be as relevant to my project. I have already pulled the dataset onto my local machine for previous work.
-(source: https://en.wikipedia.org/wiki/ImageNet)
+I will be using ImageNet for my dataset. ImageNet contains over 14 million annotated images across over 20,000 categories. Many proposed models for my project are trained on ImageNet. ImageNet has built arguments to split the dataset into training, validation, and testing sets, though these will likely not be as relevant to my project. I have already pulled the dataset onto my local machine for previous work [5].
+
+Due to the rapid tests of the project, I have used a smaller version of ImageNet, Tiny-ImageNet, which contains 200 classes and reduced file sizes of (64, 64).
 
 ## Proposed Solution
 
@@ -23,20 +24,24 @@ After running some of the images, I ran some adversarial attacks (FGSM) and obse
 ## Justification of Methods
 
 ### Softmax Scores ≠ Probability
+
 I decided to start with MobileNetV2 in evaluating its own trustworthiness. For my project, I'm looking for more explainability than merely a "confidence" score. These confidence scores are simply softmax scores, which are often described as probabilities. However, the softmax score is not a probability, so we must be more sophisticated in the ways we evaluate our models. When running these "black box" models, we can't always trust what we see.
 
 ### Image Alterations
+
 Since softmax scores don't necessarily reflect the model's prediction probability, we need to find other ways of evaluating the model. One approach is to progressively alter the image until the model incorrectly classifies the image. This shows model robustness, and gives us a level of trust in the system as a whole. These tests would need to be performed on a very large dataset, and on every class. For example, some classes may be more resistent to changes than others. Ultimately, I would like to gather a smooth distribution of different alterations over a number of simulations so that a trustworthy metric could be calculated per model, per class.
 
 ### Perturbations
+
 One of the first common adversarial attacks on nueral networks uses Fast Gradient Signed Method (FGSM), first proposed by Goodfellow et al. FGSM uses the gradients of the loss function with respect to the image [2]. These perturbations are one way to fool the model, and observe how quickly it breaks by adjusting the epsilon. If the model is not fooled until high levels of epsilon, then it is trustworthy. If the model is fooled rather quickly, we cannot be confident in its deployment on test data. Below is some details regarding the perturbation formula:
 
 <img width="450" alt="Screen Shot 2021-10-14 at 1 55 57 PM" src="https://user-images.githubusercontent.com/30506411/137370941-35ba6fbc-56a5-4b86-b1b6-a5c4ce5a4ba1.png">
-Source: https://www.tensorflow.org/tutorials/generative/adversarial_fgsm
+Source: [6]
 
 These perturbations can be focused to different parts of the image using other methods like Grad-CAM.
 
 ### Grad-CAM Heatmaps, Perturbations
+
 Grad-CAMs have become a popular way to evaluate what each model is "looking" at. Grad-CAMs generate heatmaps using the last convolutional layer. These heatmaps can provide practitioners a visual that describes where the model is focusing its attention at the moment before it makes its prediction [1]. I would like to use Grad-CAMs to focus perturbations to where the model is looking at. At this step, we should see the model less tolerant to changes and more easily flipped to incorrect classifications. Next, I would like to flip the Grad-CAM to focus only on the background of the image. We expect to see the model more tolerate to perturbations than the Grad-CAM object perturbations, and the general perturbations. If we repeat these steps with many samples from each class, we should get a smooth distribution of general perturbations, Grad-CAM object-focused perturbations, and Grad-CAM background-focused perturbations. By using these framework, we can apply mathematical operations to get a trustworthy score. This score determines the tolerance for each trained models's classes. For example, some classes may have extremely high confidence (> 90%), but with a slight change to the image it will flip to an incorrect classification. Therefore, the confidence score is misleading, but our trustworthy metric will capture the model's sensitivity to these changes and give us appropiate model trust.
 
 
@@ -157,6 +162,9 @@ This work is an adaptation of an ongoing research project through the Computer V
 
 [4] https://en.wikipedia.org/wiki/Root-finding_algorithms
 
+[5] https://en.wikipedia.org/wiki/ImageNe
+
+[6] https://www.tensorflow.org/tutorials/generative/adversarial_fgsm
 
 
 
