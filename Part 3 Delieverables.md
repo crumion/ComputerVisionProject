@@ -22,22 +22,22 @@ The model correctly classified 24.11% of the validation images. Some of the imag
 
 ## Graphs
 
+
+### Average Epsilon Failure by Each Class
 ![1](https://user-images.githubusercontent.com/30506411/142560750-b72dfbba-218e-4f89-a4f2-48b3094357cc.png)
 
 
-
+### Average Epsilon Failure by Each Class (zoomed on uniform)
 ![2](https://user-images.githubusercontent.com/30506411/142560762-ad90ae3e-b2dd-49f9-a715-7e485c531e37.png)
 
 
 
-
+### Top Most "Sensitive" Classes
 ![3](https://user-images.githubusercontent.com/30506411/142560770-523c6744-9436-44d8-8800-005a50ab804d.png)
 
 
 
-
-
-
+### Top 10 Most "Robust" Classes
 ![4](https://user-images.githubusercontent.com/30506411/142560782-ef542084-c3fd-48b4-b387-2e4478cf44de.png)
 
 
