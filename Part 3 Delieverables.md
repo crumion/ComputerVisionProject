@@ -1,16 +1,11 @@
 # Part 3 Delieverables
 
 
-## Example
-
-- A report (no page limit, but try to be concise; 3-4 pages should suffice) or a separate (from Parts 1 and 2) readme GitHub doc that includes:
-
-- A short justification of the choice of classifier. For instance, if you selected SVM with RBF kernel, say why you think this classifier is good for your project. (3 points).
+## Model and Classifier
 
 My goal is to evaluate the "robustness" or "trustworthiness" of a trained model or classifier. I decided to use a TensorFlow pretrained model, MobileNetV2, since it was used in many online examples. For my project, the classifier doesn't really matter, as I will be comparing one classifier to another. Since MobileNetV2 was trained on ImageNet, I was able to use a validation sample from Tiny-ImageNet, which features 200 classes at reduced image sizes (64, 64). The validation set had 10,000 images, 50 images per class. It also includes a text file mapping each file to an image label. I created a Pandas Dataframe to join these values with numeric and semantic meanings ('val_3.JPEG' : 'bathtub','n02808440', 884).
 
-
-- A classification accuracy achieved on the training and validation sets. That is, how many objects were classified correctly and how many of them were classified incorrectly (It is better to provide a percentage instead of numbers). Students working on object detection may report Intersection over Union (Links to an external site.) averaged over the training and testing samples. More advanced students (especially those attending the 60535 section of the course) can select the performance metrics that best suit their given problem (for instance, Precision-Recall, f-measure, plot ROCs, etc.) and justify the use of the evaluation method. (3 points).
+## Accuracy and Performance
 
 The model correctly classified 24.11% of the validation images. Some of the images were incorrectly formated which threw a value error, so I added exception handling to circumnavigate this error. 168 images were not tested and thrown out because of this error. Of the 10,000 images, 2411 remained correctly formatted, classified, and ready for adversarial attacks.
 
@@ -19,18 +14,19 @@ I used the Fast Gradient Sign Method to generate adversarial attacks on each ima
 The most "sensitive" class was grasshopper, followed by fly and pizza (0.0000214440918, 0.000431060791, 0.0008377893066). The most "robust" classes were poncho, sock, and confectionery (0.46, 0.37, 0.31). These values tell us the average epsilon value for each class to fail (predict an incorrect classification). These show how far we have to travel in the direction of the gradient (signed method) to maximize the loss and fail the model. If we can easily fool a model, we should not readily trust it's ability to predict on new test sets.
 
 
-- A short commentary related to the observed accuracy and ideas for improvements. For instance, if you see almost perfect accuracy on the training set, and way worse on the validation set, what does it mean? Is it good? If not, what do you think you could do to improve the generalization capabilities of your solution? (6 points)
+## Room for Improvement
 
 I currently have a pipeline to test how robust each model and its classifiers are for Fast Gradient Sign Method. By generating these distributions, I can compare one model's robustness over another and gain confidence when showing these systems new images. These normal perturbations will be compared with the Grad-Cam Object perturbations and the Grad-Cam Background perturbations. We expect to see a range of average epsilon values across all three tests, which will add into our trusthworthiness metric. For example, if the Background perturbations are close to the Object perturbations, we can conclude the model isn't looking particularly at the object. However, if the average epsilon value is much higher for Background perturbations than for Object perturbations, we can conclude the model and class is more robust. There will be a failure point at each and every model, but the focus is to provide a range of confidence we can place on the model's ability to predict.
 
 Initial trials of the Object and Background perturbations were inconclusive. Charts below show the insconsistencies between robustness, as we observed the opposite affect. Object perturbations were less sensitive to epsilon values, followed by Background and regular perturbations. We are still analyzing and interpreting these findings. These tests were run on a very small dataset (n=10), and on a very senstive class (bullfrog, which is in the top 1% of sensitive classes). Regardless of these findings, the relative pipelines are built and will be performed for the final sections of this project. However, we will be modifying our work going forward and using another way to interpret trustworthiness: heatmaps.
 
-## Project Focus
-
 Similarly to Grad-Cams, the gradient can also be visualized as a heatmap. This could be used as a replacement of Grad-Cams to estimate what the network is "looking" at. We wish to find a resemblance to how humans would classify objects. For example, we expect heatmaps to be concentrated around the face to classify a human. For future work, we will attempt to measure the compactness of a heatmap. The heatmaps below show the differences in concentration the network places on an object. We feel confident that a dense heatmap has higher robustness than one that is spread out, since there are likely only a few close features essential to classification. These concentrations can also be compared to Grad-Cams to see if the last convolutional layer agrees with the gradient (should be the same).
 
+Another component of the pipeline that must be fixed before the final results is the code. The committed code is functional but not optimal. First, functions and classes need to be made and will improve code readability. Second, the code output to text files should be formatted better. I had to spend time data wrangling which could be prevented by better txt outputs. Third, the way the bisectional algorithm is written there is no check to see if the last prediction is equal to the first prediction. In some cases, the final epsilon value will not fully break the model. In these cases, the step value (0.00001) must be added to obtain the true breaking epsilon value. A simple logic statement after the loop will resolve this issue. Finally, the code does not stop adversarial attacks for incorrectly classified images. This will greatly improve the speed of the model and test only the necessary images.
 
-- Push your current codes realizing what you mention in the report to GitHub (3 points).
+## Code
+
+The relevent code has been uploaded to this GitHub repository.
 
 
 ## Graphs
