@@ -1,6 +1,7 @@
 # Computer Vision 1 Semester Project
 
 This document entails the Computer Vision 1 Semester Project by Colton Crum, heavily led, helped, and encouraged by Dr. Adam Czjka.
+
 Computer Vision Research Lab, University of Notre Dame.
 
 # Part 1 Delieverables
