@@ -73,8 +73,6 @@ val_labels = val_labels.drop(columns=['a', 'b', 'c', 'd'])
 database = pd.merge(left=val_labels, right=df, left_on='Label', right_on='Label')
 database = database.rename(columns={2: 'Word'})
 
-print(database.head())
-
 labels_df = database.drop_duplicates(subset=['Label'])
 labels_list = labels_df['Label'].tolist()
 
@@ -85,7 +83,6 @@ folder = os.listdir(directory) # dir is your directory path
 
 for l in labels_list:
   rslt_df = database.loc[database["Label"] == l]
-  print(rslt_df.head())
   #print(rslt_df.sample(frac=0.5, replace=False, random_state=1))
   for im in rslt_df.iterrows():
     row_series = im[1].values
@@ -121,8 +118,6 @@ for l in labels_list:
       adv_x = tf.clip_by_value(adv_x, -1, 1)
       output = get_imagenet_label(pretrained_model.predict(adv_x))
       groundTruth_label = output[1]
-      if groundTruth_label != 0:
-        print('') 
       print(groundTruth_label)
       pred_label = " "
       eps = 2.0
@@ -135,10 +130,9 @@ for l in labels_list:
       #print(eps)
       upper_bound = eps * 2
       lower_bound = eps
-      threshold = 0.00001
       while True:
         middle_bound = (lower_bound + upper_bound) / 2
-        if (upper_bound - lower_bound) < threshold:
+        if (upper_bound - lower_bound) < 0.00001:
           break
         #print(str(img) + ": " + str(eps))
         adv_x = image + middle_bound*perturbations
@@ -152,15 +146,16 @@ for l in labels_list:
         if pred_label != groundTruth_label:
           upper_bound = middle_bound
           print(middle_bound)
-      if pred_label == grounTruth_label:
-        middle_bound = middle_bound + threshold
       print("Flipped classes at " + str(middle_bound))
-      failure = "File | " + str(img) + " | Class | " + str(groundTruth_label) + " | Failured class | " + str(pred_label) + " | Eps | " + str(middle_bound)
+      failure = "File:" + str(img) + " Class: " + str(groundTruth_label) + " Failured class: " + str(pred_label) + " Eps: " + str(middle_bound)
       print(failure)
-      file_path = "../../imagenet-200-results/fgsm_class_200_sampled-8.txt"
+      file_path = "../../imagenet-200-results/fgsm_class_200_sampled.txt"
       file = open(file_path, "a")
       file.write(failure + "\n")
       file.close()
-
     except ValueError:
-      print("Gotcha!")
+      write_to_file = image_path + " was skipped due to a ValueError."
+      file_path = "../../imagenet-200-results/fgsm_class_200_sampled.txt"
+      file = open(file_path, "a")
+      file.write(write_to_file + "\n")
+      file.close()
