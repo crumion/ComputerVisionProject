@@ -76,6 +76,11 @@ Similarly to Grad-Cams, the gradient can also be visualized as a heatmap. This c
 ![10](https://user-images.githubusercontent.com/30506411/142565227-21cfe246-689a-4349-8766-e9b56fce964a.png)
 
 
+
+![12](https://user-images.githubusercontent.com/30506411/142565296-4b16c580-0707-412d-9a76-fd7c92238c24.png)
+
+
+
 ![11](https://user-images.githubusercontent.com/30506411/142565237-312eec6a-8c8b-4bfc-8ca6-def26e2a1059.png)
 
 
