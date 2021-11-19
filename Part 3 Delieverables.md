@@ -19,5 +19,30 @@ The model correctly classified 24.11% of the validation images. Some of the imag
 
 - Push your current codes realizing what you mention in the report to GitHub (3 points).
 
+
 ## Graphs
+
+![1](https://user-images.githubusercontent.com/30506411/142560750-b72dfbba-218e-4f89-a4f2-48b3094357cc.png)
+
+
+
+![2](https://user-images.githubusercontent.com/30506411/142560762-ad90ae3e-b2dd-49f9-a715-7e485c531e37.png)
+
+
+
+
+![3](https://user-images.githubusercontent.com/30506411/142560770-523c6744-9436-44d8-8800-005a50ab804d.png)
+
+
+
+
+
+
+![4](https://user-images.githubusercontent.com/30506411/142560782-ef542084-c3fd-48b4-b387-2e4478cf44de.png)
+
+
+
+
+
+
 
