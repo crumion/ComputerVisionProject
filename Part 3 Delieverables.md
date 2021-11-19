@@ -24,10 +24,20 @@ Similarly to Grad-Cams, the gradient can also be visualized as a heatmap. This c
 
 Another component of the pipeline that must be fixed before the final results is the code. The committed code is functional but not optimal. First, functions and classes need to be made and will improve code readability. Second, the code output to text files should be formatted better. I had to spend time data wrangling which could be prevented by better txt outputs. Third, the way the bisectional algorithm is written there is no check to see if the last prediction is equal to the first prediction. In some cases, the final epsilon value will not fully break the model. In these cases, the step value (0.00001) must be added to obtain the true breaking epsilon value. A simple logic statement after the loop will resolve this issue. I would also like to try other root finding methods to see if I can speed up the process. Upon review, the secant method looks promising to try, althrough there are a handfull of potential methods [2]. Finally, the code does not stop adversarial attacks for incorrectly classified images. This will greatly improve the speed of the model and test only the necessary images. As always, the code could be threaded or optimized for GPU use. This will allow faster results and more scalable testing of the trustwothy pipeline.
 
-## Code
+## Relevant Code and Result Files
 
 The relevent code has been uploaded to this GitHub repository.
+- main-imagenet-200-8.py
+This is the main python script responsible for the "fgsm_class_200_results.txt"
 
+- fgsm_class_200_results.txt
+The output of "main-imagenet-200-8.py". Note that these results do not measure confidence values associated with each epsilon value, which can be performed with a linear search if relevent later.
+
+- broken_regular_class_flip_fgsm_adversarial_results.txt
+This file reflects results from a previous script that did not have ValueError handling and was implementing a linear search instead of updated bisection method. Note these file contains incomplete results.
+
+- broken_regular_fgsm_adversarial_results.txt
+This file reflects the relevent classification flips per image with the previous code. Note it did not include error handling and contains incomplete results.
 
 ## Graphs
 
