@@ -15,7 +15,9 @@ My goal is to evaluate the "robustness" or "trustworthiness" of a trained model 
 The model correctly classified 24.11% of the validation images. Some of the images were incorrectly formated which threw a value error, so I added exception handling to circumnavigate this error. 168 images were not tested and thrown out because of this error. Of the 10,000 images, 2411 remained correctly formatted, classified, and ready for adversarial attacks.
 
 
-
 - A short commentary related to the observed accuracy and ideas for improvements. For instance, if you see almost perfect accuracy on the training set, and way worse on the validation set, what does it mean? Is it good? If not, what do you think you could do to improve the generalization capabilities of your solution? (6 points)
 
 - Push your current codes realizing what you mention in the report to GitHub (3 points).
+
+## Graphs
+
