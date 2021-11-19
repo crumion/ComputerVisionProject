@@ -53,34 +53,33 @@ Similarly to Grad-Cams, the gradient can also be visualized as a heatmap. This c
 ### Top 10 Most "Robust" Classes
 ![4](https://user-images.githubusercontent.com/30506411/142560782-ef542084-c3fd-48b4-b387-2e4478cf44de.png)
 
-
+### Regular Perturbations, Object, and Background: First Incorrect Classification
 ![5](https://user-images.githubusercontent.com/30506411/142565195-2f0d0ef4-2a7e-4464-a97c-e832ac8e6f51.png)
 
-
+### Regular Perturbations: First Incorrect Classification
 ![6](https://user-images.githubusercontent.com/30506411/142565199-a8561c11-1b31-4016-9c8e-6de6609244d1.png)
 
-
-
+### Background Pertubrations: First Incorrect Classification
 ![7](https://user-images.githubusercontent.com/30506411/142565208-bc8a8058-ef12-41c5-8960-15b494190590.png)
 
-
+### Object Perturbations: First Incorrect Classification
 ![8](https://user-images.githubusercontent.com/30506411/142565216-448c6adf-80ec-4a71-9d30-28f951f082df.png)
 
 
-
+### Object Perturbations: Changes in "Confidence"
 ![9](https://user-images.githubusercontent.com/30506411/142565223-44af7634-5a41-436a-8ab9-d9e33973909f.png)
 
 
 
-
+### Regular Perturbations: Changes in "Confidence"
 ![10](https://user-images.githubusercontent.com/30506411/142565227-21cfe246-689a-4349-8766-e9b56fce964a.png)
 
 
-
+### Background Perturbations: Changes in "Confidence"
 ![12](https://user-images.githubusercontent.com/30506411/142565296-4b16c580-0707-412d-9a76-fd7c92238c24.png)
 
 
-
+### Regular Perturbation: First Incorrect Classification per Image
 ![11](https://user-images.githubusercontent.com/30506411/142565237-312eec6a-8c8b-4bfc-8ca6-def26e2a1059.png)
 
 
