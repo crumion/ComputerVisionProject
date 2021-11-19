@@ -1,5 +1,6 @@
 # Computer Vision 1 Semester Project
 
+# Part 1 Delieverables
 
 ## Dataset
 
@@ -13,7 +14,9 @@ I will be modifying some of the work I've been doing on the Crane research proje
 
 For my semester project, I will be forming a reliability metric to access the models based on random, out of class inputs. My previous work has involved adding random perturbations onto different parts of an image, and observing the differences in model confidence. Using object masking, I have added perturbations to the background, object, and entire image to compare confidence scores and measure different ways the model classify an image. I have used VGG16, VGG19, and Xception and evaluated their robustness to these adversarial attacks. For my semester project, I plan to use these models in more diverse ways, eventually creating a set of metrics to evaluate their performance and the various ways we can access their trustworthiness. In theory, by checking their responses to different situations (perturbations, rotations, etc.) we can formulate a trust score, and thus we can have a better measure in their ability to perform tasks accurately than merely observing confidence scores.
 
-## Overview | Methods Applied for data pre-processing and feature extraction
+# Part 2 Delieverables
+
+## Methods Applied for data pre-processing and feature extraction
 
 After downloading the images, I had to rename files to reflect the image content. I set up local directories so I could iterate over them easily. I also fixed file extensions, renaming all extensions to reflect .jpg (some were jpeg).
 
