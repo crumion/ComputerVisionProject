@@ -51,10 +51,10 @@ For Object focused FGSM perturbations, the most robust classes were patio (0.80)
 ### Most Sensitive Object FGSM Classes
 ![Most Sensitive Object FGSM Classes](https://user-images.githubusercontent.com/30506411/145866372-6edae8aa-d0a6-4810-b3c7-54243aabe93f.png)
 
-### Grad-Cam Focusing Perturbations
+### Grad-Cam Focusing Perturbations, all classes
 ![Grad-Cam Focusing Perturbations (2)](https://user-images.githubusercontent.com/30506411/145866608-32e40f10-4280-47ff-8f6e-a1c315bde3ce.png)
 
-### Grad-Cam Focusing Perturbations, adjusted x axis
+### Grad-Cam Focusing Perturbations, all classes and adjusted x axis
 ![Grad-Cam Focusing Perturbations (1)](https://user-images.githubusercontent.com/30506411/145866624-f345ce58-aee9-41aa-b3fb-2954c7d39eb8.png)
 
 
