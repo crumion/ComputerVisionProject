@@ -1,0 +1,1 @@
+Image_label | n15075141 | Label Name | toilet_tissue | Epsilon Value | 0.16873557120591526 | File | ../../val_blurred/n15075141/ILSVRC2012_val_00006482.jpg
