@@ -93,7 +93,7 @@ https://docs.google.com/presentation/d/107tTgQ9NW03ETU0Qzd20T9sshafNEGhtClaim0LZ
 ## Folder Structure Diagram
 ![Screenshot from 2021-12-13 15-20-48](https://user-images.githubusercontent.com/30506411/145882994-49bfc24e-4bbc-44f1-9ed8-a4ff47936263.png)
 
-The example codes can be found under ./Example Codes in the main directory. The above graphic represents the appropiate folder structure and files to run the example code. Due note there are a few changes. The first change in these codes are the second for loop, where the line:
+The example codes can be found under ./Example Codes in the main directory. The test scripts can be found under ./test scripts. The above graphic represents the appropiate folder structure and files to run the example code. Due note there are a few changes. The first change in these codes are the second for loop, where the line:
 
 for file in resample(files, n_samples=5, replace=False, random_state=1):
 
