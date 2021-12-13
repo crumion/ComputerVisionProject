@@ -79,3 +79,26 @@ Since we our evaluating the trusthworthiness of a pretrained model, it will be d
 > Push your final (to be graded) codes realizing what you mention in the report to GitHub, along with instructions how to run them (either Adam or Siamul will do it to see how the final solution works on test data). Your program(s) should pick one example from the test set (please attach this sample to your codes) and present the processing result. We should be able to run your programs without any edits -- please double check before submission that the codes are complete. (5 points)
 
 
+### Folder Structure
+
+Computer Vision Final Project/
+├── adv_requirements.txt
+├── imagenet-val/
+│   ├── background-pert.txt
+│   ├── fgsm-pert.txt
+│   ├── object-pert.txt
+├── scripts/
+│   ├── background
+|   │   ├── main.py
+|   |   └── imagenet_labels.txt
+│   ├── fgsm
+|   │   ├── main.py
+|   |   └── imagenet_labels.txt
+│   ├── object
+|   │   ├── main.py
+|   |   └── imagenet_labels.txt
+└── val_blurred/
+    └── n15075141
+        └── ILSVRC2012_val_00006482.jpg
+
+
