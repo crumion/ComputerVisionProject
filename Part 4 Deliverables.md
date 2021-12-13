@@ -73,6 +73,14 @@ Since we our evaluating the trusthworthiness of a pretrained model, it will be d
 
 > Imagine you want to present your final program to a friend (or investor). And this presentation should be short and illustrative (that is: show what you did and how good it is). Prepare a short video, or a short slideshow with pictures, presenting how your final program works. Here are good examples prepared by former CV students. (5 points)
 
+Presentation can be found at:
+https://docs.google.com/presentation/d/1Ip74d2KpsDbfBxkAkUihtWXDJZ-Sb4dFeYxycmh1Tlc/edit?usp=sharing
+
+A slide deck reflecting the weekly progress updates can be found at:
+https://docs.google.com/presentation/d/107tTgQ9NW03ETU0Qzd20T9sshafNEGhtClaim0LZ79w/edit?usp=sharing
+
+
+
 
 ## Final Code Base
 
