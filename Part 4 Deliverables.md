@@ -1,9 +1,7 @@
 # Part 4 deliverables (Final report)
 
 
-The aim of this last part of the semester project is to test your solutions on unknown data. By "unknown data" I mean a sequestered set of samples, not used (or seen) when you were designing your method in parts 2 and 3 of the project. Here is a general list of deliverables for Part 4:
-
-A report (no page limit, but try to be concise; 3-4 pages should suffice) or a separate (from Parts 1-3) readme GitHub doc that includes:
+> The aim of this last part of the semester project is to test your solutions on unknown data. By "unknown data" I mean a sequestered set of samples, not used (or seen) when you were designing your method in parts 2 and 3 of the project. Here is a general list of deliverables for Part 4: A report (no page limit, but try to be concise; 3-4 pages should suffice) or a separate (from Parts 1-3) readme GitHub doc that includes: report, presentation, and final codes pushed to GitHub.
 
 ## Report
 
@@ -31,6 +29,8 @@ For Object focused FGSM perturbations, the most robust classes were patio (0.80)
 ### Analysis of Results, Further Improvements
 
 > Most of you should see worse results on the test set when compared to the results obtained on train/validation sets. You should not be worried about that, but please provide the reasons why your solution performs worse (with a few illustrations, such as pictures or videos, what went wrong). What improvements would you make to lower the observed error rates? (5 points)
+
+Since we our evaluating the trusthworthiness of a pretrained model, it will be difficult to compare our results with part 3. These results are expected to be more expansive and better representative than our previous developments. However, these results shed light on how the model is making its classifications and what that says about the model as a whole. First, our results show a distribution of average failed epsilon values. These can be understood as how "robust" the models are to inputs that maximize their loss functions w.r.t. each class label. Using Gradient Class Activiation Mappings, we focused the perturbations unequally to reflect greater epsilon values (or step values) for either the object or the background. As stated previously, we expected the background distributions to be shifted towards the right, and the object distributions to be shifted towards the left (in comparison to the regular FGSM distributions). This is exactly what we saw in our Part 4 results. We can use these distributions to develop a metric to assess the changes in epsilon values from the object to the background. For a robust class, we hope to see a great difference between these two values. 
 
 
 ### Most Robust Regular FGSM Classes
@@ -60,9 +60,9 @@ For Object focused FGSM perturbations, the most robust classes were patio (0.80)
 
 ## Presentation
 
-Imagine you want to present your final program to a friend (or investor). And this presentation should be short and illustrative (that is: show what you did and how good it is). Prepare a short video, or a short slideshow with pictures, presenting how your final program works. Here are good examples prepared by former CV students. (5 points)
+> Imagine you want to present your final program to a friend (or investor). And this presentation should be short and illustrative (that is: show what you did and how good it is). Prepare a short video, or a short slideshow with pictures, presenting how your final program works. Here are good examples prepared by former CV students. (5 points)
 
 
 ## Final Code Base
 
-Push your final (to be graded) codes realizing what you mention in the report to GitHub, along with instructions how to run them (either Adam or Siamul will do it to see how the final solution works on test data). Your program(s) should pick one example from the test set (please attach this sample to your codes) and present the processing result. We should be able to run your programs without any edits -- please double check before submission that the codes are complete. (5 points)
+> Push your final (to be graded) codes realizing what you mention in the report to GitHub, along with instructions how to run them (either Adam or Siamul will do it to see how the final solution works on test data). Your program(s) should pick one example from the test set (please attach this sample to your codes) and present the processing result. We should be able to run your programs without any edits -- please double check before submission that the codes are complete. (5 points)
