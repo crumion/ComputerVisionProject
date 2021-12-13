@@ -81,5 +81,17 @@ Since we our evaluating the trusthworthiness of a pretrained model, it will be d
 ### Folder Structure Diagram
 ![Screenshot from 2021-12-13 15-20-48](https://user-images.githubusercontent.com/30506411/145882994-49bfc24e-4bbc-44f1-9ed8-a4ff47936263.png)
 
+The example codes can be found under ./Example Codes in the main directory. The above graphic represents the appropiate folder structure and files to run the example code. Due note there are a few changes. The first change in these codes are the second for loop, where the line:
 
+for file in resample(files, n_samples=5, replace=False, random_state=1):
 
+has been commented out and changed to:
+
+for files in files:
+
+This line reflects only one sample class and one sample image, instead of sampling 5 images from every class. Additionally, the val_blurred directory has only a sample class and image, not the entire ImageNet validation set. The only difference between the sample codes and test codes are the above line and expanded database.
+
+### Extended Notes
+- Each directory has a main.py file and a labels database. The main.py files are the same except for changes in the use of grad-cam (none, object focused, background focused), and the change in adversarial images (adv_x = image + eps * perturbations OR adv_x = image + eps * perturbations * cam_weights).
+- All scripts employ the root finding method BrentH, taken from scipy. This is a variation of Brent’s method that uses hyperbolic extrapolation instead of inverse quadratic extrapolation. Brent’s method uses a combination of bisection, secant, and inverse quadratic interpolation.
+- For focused object and background perturbations, the following adjustments were made. First, grad-cams were focused around darker parts of the region, so lower RGB values. Grad-Cams were fine for background focused (cam_weights), but needed to be rescaled for object focused (cam_weights = 255 - cam_weigts). Additionally, since we modified the adv_x line, cam_weights had to be scaled to a mean of 1 (adv_x = image + eps * perturbations * cam_weights_normalized). This step was necessary since the previous adv_x multiplication step didn't feature any extra weights. This scaling steps allowed us to be mathematically fair in comparing cam generated weights (object and background) to regular FGSM attacks.
