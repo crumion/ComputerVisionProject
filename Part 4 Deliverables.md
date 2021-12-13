@@ -26,6 +26,35 @@ In part 3, we measured robustness by the average first failure of the model (mea
 
 
 
+![Most Robust Regular FGSM Classes](https://user-images.githubusercontent.com/30506411/145866464-0a23f8f3-a0e4-4028-b448-72ac691b0c1f.png)
+
+
+
+![Most Sensitive Regular FGSM Classes](https://user-images.githubusercontent.com/30506411/145866470-ced6b53a-94bd-4a58-821c-6d1548e39e97.png)
+
+
+
+![Most Robust Object FGSM Classes](https://user-images.githubusercontent.com/30506411/145866357-b92d4abe-27ea-427e-8e7d-44ef86b172b6.png)
+
+
+![Most Sensitive Object FGSM Classes](https://user-images.githubusercontent.com/30506411/145866372-6edae8aa-d0a6-4810-b3c7-54243aabe93f.png)
+
+
+![Most Robust Background FGSM Classes](https://user-images.githubusercontent.com/30506411/145866387-a4ef1349-b87a-405d-a1d9-db0521ea1af3.png)
+
+
+![Most Sensitive Background FGSM Classes](https://user-images.githubusercontent.com/30506411/145866403-6a556db6-7242-45ca-b995-fc32551088d0.png)
+
+
+
+
+
+
+
+
+
+
+
 ## Presentation
 
 Imagine you want to present your final program to a friend (or investor). And this presentation should be short and illustrative (that is: show what you did and how good it is). Prepare a short video, or a short slideshow with pictures, presenting how your final program works. Here are good examples prepared by former CV students. (5 points)
