@@ -91,6 +91,8 @@ for files in files:
 
 This line reflects only one sample class and one sample image, instead of sampling 5 images from every class. Additionally, the val_blurred directory has only a sample class and image, not the entire ImageNet validation set. The only difference between the sample codes and test codes are the above line and expanded database.
 
+The conda environment used to run these scripts can be found under adv_requirements.txt. This shows all necessary dependencies and can ease the burden of creating the appropiate conda environments.
+
 ### Extended Notes
 - Each directory has a main.py file and a labels database. The main.py files are the same except for changes in the use of grad-cam (none, object focused, background focused), and the change in adversarial images (adv_x = image + eps * perturbations OR adv_x = image + eps * perturbations * cam_weights).
 - All scripts employ the root finding method BrentH, taken from scipy. This is a variation of Brent’s method that uses hyperbolic extrapolation instead of inverse quadratic extrapolation. Brent’s method uses a combination of bisection, secant, and inverse quadratic interpolation.
