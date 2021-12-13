@@ -17,7 +17,7 @@ We used the validation set of ImageNet to evaluate the adversarial robustness of
 
 Due to time and computational constraints, we randomly sampled 5 out of the 50 images per class with replacement. Out of 5,000 images, 124 images threw ValueErrors and had to be skipped. While the error is somewhat ambigous, we suggest a preprocessing step failed to format the image correctly (either incorrect sizing, incorrect channels, etc.). These errors were labeled and recorded in the log files. After throwing out those images, we were left with 4876 images for our test set. We also removed images that the model could not correctly classify with zero adversarial attack. The model correctly predicted the ground truth classification 68.27% of the time (3329/4876). The remaining 3329 images were perturbed until an incorrect classification was obtained.
 
-In part 3 we measured robustness by the average first failure of the model (measured by epsilon, or step values). We only used the FSGM, which perturbs the entire image at equal rates.
+In part 3, we measured robustness by the average first failure of the model (measured by epsilon, or step values). We only used the FSGM, which perturbs the entire image at equal rates. For out final submission, we used Grad-Cams to focus those perturbations so that the images are perturbed unequally onto the object or the background. For example, we expected to see higher average epsilon failures for the background, and the contrary for object perturbations. The regular FGSM serves as a rough middle ground for a comparison of the two types of attacks.
 
 
 
