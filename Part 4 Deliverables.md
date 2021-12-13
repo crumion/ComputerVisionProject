@@ -33,38 +33,29 @@ For Object focused FGSM perturbations, the most robust classes were patio (0.80)
 > Most of you should see worse results on the test set when compared to the results obtained on train/validation sets. You should not be worried about that, but please provide the reasons why your solution performs worse (with a few illustrations, such as pictures or videos, what went wrong). What improvements would you make to lower the observed error rates? (5 points)
 
 
-
+### Most Robust Regular FGSM Classes
 ![Most Robust Regular FGSM Classes](https://user-images.githubusercontent.com/30506411/145866464-0a23f8f3-a0e4-4028-b448-72ac691b0c1f.png)
 
-
-
+### Most Sensitive Regular FGSM Classes
 ![Most Sensitive Regular FGSM Classes](https://user-images.githubusercontent.com/30506411/145866470-ced6b53a-94bd-4a58-821c-6d1548e39e97.png)
 
-
-
-![Most Robust Object FGSM Classes](https://user-images.githubusercontent.com/30506411/145866357-b92d4abe-27ea-427e-8e7d-44ef86b172b6.png)
-
-
-![Most Sensitive Object FGSM Classes](https://user-images.githubusercontent.com/30506411/145866372-6edae8aa-d0a6-4810-b3c7-54243aabe93f.png)
-
-
+### Most Robust Background FGSM Classes
 ![Most Robust Background FGSM Classes](https://user-images.githubusercontent.com/30506411/145866387-a4ef1349-b87a-405d-a1d9-db0521ea1af3.png)
 
-
+### Most Sensitive Background FGSM Classes
 ![Most Sensitive Background FGSM Classes](https://user-images.githubusercontent.com/30506411/145866403-6a556db6-7242-45ca-b995-fc32551088d0.png)
 
+### Most Robust Object FGSM Classes
+![Most Robust Object FGSM Classes](https://user-images.githubusercontent.com/30506411/145866357-b92d4abe-27ea-427e-8e7d-44ef86b172b6.png)
 
+### Most Sensitive Object FGSM Classes
+![Most Sensitive Object FGSM Classes](https://user-images.githubusercontent.com/30506411/145866372-6edae8aa-d0a6-4810-b3c7-54243aabe93f.png)
 
+### Grad-Cam Focusing Perturbations
 ![Grad-Cam Focusing Perturbations (2)](https://user-images.githubusercontent.com/30506411/145866608-32e40f10-4280-47ff-8f6e-a1c315bde3ce.png)
 
-
+### Grad-Cam Focusing Perturbations, adjusted x axis
 ![Grad-Cam Focusing Perturbations (1)](https://user-images.githubusercontent.com/30506411/145866624-f345ce58-aee9-41aa-b3fb-2954c7d39eb8.png)
-
-
-
-
-
-
 
 
 ## Presentation
