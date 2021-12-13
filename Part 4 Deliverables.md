@@ -57,7 +57,7 @@ Since we our evaluating the trusthworthiness of a pretrained model, it will be d
 ### Grad-Cam Focusing Perturbations, all classes and adjusted x axis
 ![Grad-Cam Focusing Perturbations (1)](https://user-images.githubusercontent.com/30506411/145866624-f345ce58-aee9-41aa-b3fb-2954c7d39eb8.png)
 
-### Untitled
+### Difference between Background and Object Perturbations
 ![difference](https://user-images.githubusercontent.com/30506411/145876287-5514ca20-9d94-4eab-a671-3ca7d97b2205.png)
 
 
