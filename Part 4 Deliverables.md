@@ -3,9 +3,9 @@
 
 > The aim of this last part of the semester project is to test your solutions on unknown data. By "unknown data" I mean a sequestered set of samples, not used (or seen) when you were designing your method in parts 2 and 3 of the project. Here is a general list of deliverables for Part 4: A report (no page limit, but try to be concise; 3-4 pages should suffice) or a separate (from Parts 1-3) readme GitHub doc that includes: report, presentation, and final codes pushed to GitHub.
 
-## Report
+# Report
 
-### Description of the Test Database
+## Description of the Test Database
 
 > Description of the test database you collected or downloaded: What is the size of the database? What is different when compared to the training and validation subsets? Why you believe these differences are sufficient to test your final programs? (2 points)
 
@@ -14,7 +14,7 @@ We used the validation set of ImageNet to evaluate the adversarial robustness of
 Due to time and computational constraints, we randomly sampled 5 out of the 50 images per class with replacement. Out of 5,000 images, 124 images threw ValueErrors and had to be skipped. While the error is somewhat ambigous, we suggest a preprocessing step failed to format the image correctly (either incorrect sizing, incorrect channels, etc.). These errors were labeled and recorded in the log files. After throwing out those images, we were left with 4876 images for our test set. We also removed images that the model could not correctly classify with zero adversarial attack. The model correctly predicted the ground truth classification 68.27% of the time (3329/4876). The remaining 3329 images were perturbed until an incorrect classification was obtained.
 
 
-### Accuracy
+## Accuracy Performance
  > A classification accuracy achieved on the test set. Use the same metrics as in part 3. (3 points)
 
 In part 3, we measured robustness by the average first failure of the model (measured by epsilon, or step values). We only used the FSGM, which perturbs the entire image at equal rates. For out final submission, we used Grad-Cams to focus those perturbations so that the images are perturbed unequally onto the object or the background. For example, we expected to see higher average epsilon failures for the background, and the contrary for object perturbations.
@@ -28,7 +28,7 @@ For Object focused FGSM perturbations, the most robust classes were patio (0.80)
 If we compare these results to regular FGSM epsilon values from Tiny-ImageNet, we can see that our test database was much more robust (The top 3 most robust classes failed at 0.68, 0.53, 0.51 compared to 0.46, 0.37, 0.31). The test set also recorded much higher levels of sensitivity (The top 3 most sensitive classes failed at 9.20E-06, 0.0002, 0.0003 compared to 0.00002, 0.0004, and 0.0008). Overall, these results are indicative of a better trained and more robust model than before. Again, these results were expected due to the training of ImageNet and the better quality images.
 
 
-### Analysis of Results, Further Improvements
+## Analysis of Results, Further Improvements
 
 > Most of you should see worse results on the test set when compared to the results obtained on train/validation sets. You should not be worried about that, but please provide the reasons why your solution performs worse (with a few illustrations, such as pictures or videos, what went wrong). What improvements would you make to lower the observed error rates? (5 points)
 
@@ -69,7 +69,7 @@ Since we our evaluating the trusthworthiness of a pretrained model, it will be d
 ![background_dependent](https://user-images.githubusercontent.com/30506411/145876676-3081527d-6976-49b2-b506-b3e46bb2c8a3.png)
 
 
-## Presentation
+# Presentation
 
 > Imagine you want to present your final program to a friend (or investor). And this presentation should be short and illustrative (that is: show what you did and how good it is). Prepare a short video, or a short slideshow with pictures, presenting how your final program works. Here are good examples prepared by former CV students. (5 points)
 
@@ -82,11 +82,11 @@ https://docs.google.com/presentation/d/107tTgQ9NW03ETU0Qzd20T9sshafNEGhtClaim0LZ
 
 
 
-## Final Code Base
+# Final Code Base
 
 > Push your final (to be graded) codes realizing what you mention in the report to GitHub, along with instructions how to run them (either Adam or Siamul will do it to see how the final solution works on test data). Your program(s) should pick one example from the test set (please attach this sample to your codes) and present the processing result. We should be able to run your programs without any edits -- please double check before submission that the codes are complete. (5 points)
 
-### Folder Structure Diagram
+## Folder Structure Diagram
 ![Screenshot from 2021-12-13 15-20-48](https://user-images.githubusercontent.com/30506411/145882994-49bfc24e-4bbc-44f1-9ed8-a4ff47936263.png)
 
 The example codes can be found under ./Example Codes in the main directory. The above graphic represents the appropiate folder structure and files to run the example code. Due note there are a few changes. The first change in these codes are the second for loop, where the line:
@@ -101,14 +101,14 @@ This line reflects only one sample class and one sample image, instead of sampli
 
 The conda environment used to run these scripts can be found under adv_requirements.txt. This shows all necessary dependencies and can ease the burden of creating the appropiate conda environments.
 
-### File Details
+## File Details
 - main.py files are the appropiate scripts. Each main file has be organized under its respective attack (background, object, regular).
 - imagenet_labels.txt reflect the appropiate classes, numeric index, name index, and respective image labels
 - adx_requirements.txt shows all the necessary conda dependencies
 - n15075141 shows the directory for toilet_tissue
 - ILSVRC2012_val_00006482.jpg shows a sample image for toilet_tissue
 
-### Extended Notes on the Code Base
+## Extended Notes on the Code Base
 - Each directory has a main.py file and a labels database. The main.py files are the same except for changes in the use of grad-cam (none, object focused, background focused), and the change in adversarial images (adv_x = image + eps * perturbations OR adv_x = image + eps * perturbations * cam_weights).
 - All scripts employ the root finding method BrentH, taken from scipy. This is a variation of Brent’s method that uses hyperbolic extrapolation instead of inverse quadratic extrapolation. Brent’s method uses a combination of bisection, secant, and inverse quadratic interpolation.
 - For focused object and background perturbations, the following adjustments were made. First, grad-cams were focused around darker parts of the region, so lower RGB values. Grad-Cams were fine for background focused (cam_weights), but needed to be rescaled for object focused (cam_weights = 255 - cam_weigts). Additionally, since we modified the adv_x line, cam_weights had to be scaled to a mean of 1 (adv_x = image + eps * perturbations * cam_weights_normalized). This step was necessary since the previous adv_x multiplication step didn't feature any extra weights. This scaling steps allowed us to be mathematically fair in comparing cam generated weights (object and background) to regular FGSM attacks.
