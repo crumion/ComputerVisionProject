@@ -77,3 +77,5 @@ Since we our evaluating the trusthworthiness of a pretrained model, it will be d
 ## Final Code Base
 
 > Push your final (to be graded) codes realizing what you mention in the report to GitHub, along with instructions how to run them (either Adam or Siamul will do it to see how the final solution works on test data). Your program(s) should pick one example from the test set (please attach this sample to your codes) and present the processing result. We should be able to run your programs without any edits -- please double check before submission that the codes are complete. (5 points)
+
+
