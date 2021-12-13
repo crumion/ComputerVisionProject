@@ -76,7 +76,7 @@ These test scripts should be run 8-12 times to get a proper distribution of the 
 > Imagine you want to present your final program to a friend (or investor). And this presentation should be short and illustrative (that is: show what you did and how good it is). Prepare a short video, or a short slideshow with pictures, presenting how your final program works. Here are good examples prepared by former CV students. (5 points)
 
 Presentation can be found at:
-
+https://www.youtube.com/watch?v=9qEd87Uzbs0
 
 Presented slides can be found at:
 https://www.canva.com/design/DAEydQlWS3M/NRyE-vaFO27QraUnP2JbmQ/view?utm_content=DAEydQlWS3M&utm_campaign=designshare&utm_medium=link&utm_source=sharebutton
