@@ -19,12 +19,13 @@ Due to time and computational constraints, we randomly sampled 5 out of the 50 i
 ### Accuracy
  > A classification accuracy achieved on the test set. Use the same metrics as in part 3. (3 points)
 
-In part 3, we measured robustness by the average first failure of the model (measured by epsilon, or step values). We only used the FSGM, which perturbs the entire image at equal rates. For out final submission, we used Grad-Cams to focus those perturbations so that the images are perturbed unequally onto the object or the background. For example, we expected to see higher average epsilon failures for the background, and the contrary for object perturbations. The regular FGSM serves as a rough middle ground for a comparison of the two types of attacks. The most robust classes for regular FGSM attacks were wool, doormat, and peacock.
-The most sensitive classes were petri dish, cassette player, and langur.
+In part 3, we measured robustness by the average first failure of the model (measured by epsilon, or step values). We only used the FSGM, which perturbs the entire image at equal rates. For out final submission, we used Grad-Cams to focus those perturbations so that the images are perturbed unequally onto the object or the background. For example, we expected to see higher average epsilon failures for the background, and the contrary for object perturbations.
 
-For Background focused FGSM perturbations, the most robust classes were doormat, barrow, maze, and then peacock. The most sensitive background FGSM classes were petri dish, cassette player, and dough.
+The regular FGSM serves as a rough middle ground for a comparison of the two types of attacks. The most robust classes for regular FGSM attacks were wool (0.68), doormat (0.53), and peacock (0.51). The most sensitive classes were petri dish (9.20E-06), cassette player (0.0002), langur (0.0003), and dough (0.0005).
 
-For Object focused FGSM perturbations, the most robust classes were patio, jigsaw puzzle, bonnet, and wool. The most sensitive object foucsed classes were petri dish, langur, cassette player, and dough.
+For Background focused FGSM perturbations, the most robust classes were doormat (0.92), barrow (0.73), maze (0.71), and then peacock (0.67). The most sensitive background FGSM classes were petri dish (8.88E-06), cassette player (0.00019), and dough (0.00049).
+
+For Object focused FGSM perturbations, the most robust classes were patio (0.80), jigsaw puzzle (0.75), bonnet (0.72), and wool (0.69). The most sensitive object foucsed classes were petri dish (1.08E-05), langur (0.00012), cassette player (0.00021), and dough (0.00066).
 
 
 ### Analysis of Results, Further Improvements
