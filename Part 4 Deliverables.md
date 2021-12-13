@@ -93,7 +93,14 @@ This line reflects only one sample class and one sample image, instead of sampli
 
 The conda environment used to run these scripts can be found under adv_requirements.txt. This shows all necessary dependencies and can ease the burden of creating the appropiate conda environments.
 
-### Extended Notes
+### File Details
+- main.py files are the appropiate scripts. Each main file has be organized under its respective attack (background, object, regular).
+- imagenet_labels.txt reflect the appropiate classes, numeric index, name index, and respective image labels
+- adx_requirements.txt shows all the necessary conda dependencies
+- n15075141 shows the directory for toilet_tissue
+- ILSVRC2012_val_00006482.jpg shows a sample image for toilet_tissue
+
+### Extended Notes on the Code Base
 - Each directory has a main.py file and a labels database. The main.py files are the same except for changes in the use of grad-cam (none, object focused, background focused), and the change in adversarial images (adv_x = image + eps * perturbations OR adv_x = image + eps * perturbations * cam_weights).
 - All scripts employ the root finding method BrentH, taken from scipy. This is a variation of Brent’s method that uses hyperbolic extrapolation instead of inverse quadratic extrapolation. Brent’s method uses a combination of bisection, secant, and inverse quadratic interpolation.
 - For focused object and background perturbations, the following adjustments were made. First, grad-cams were focused around darker parts of the region, so lower RGB values. Grad-Cams were fine for background focused (cam_weights), but needed to be rescaled for object focused (cam_weights = 255 - cam_weigts). Additionally, since we modified the adv_x line, cam_weights had to be scaled to a mean of 1 (adv_x = image + eps * perturbations * cam_weights_normalized). This step was necessary since the previous adv_x multiplication step didn't feature any extra weights. This scaling steps allowed us to be mathematically fair in comparing cam generated weights (object and background) to regular FGSM attacks.
