@@ -60,6 +60,11 @@ Since we our evaluating the trusthworthiness of a pretrained model, it will be d
 ### Difference between Background and Object Perturbations
 ![difference](https://user-images.githubusercontent.com/30506411/145876287-5514ca20-9d94-4eab-a671-3ca7d97b2205.png)
 
+### Object Dependent Classes
+![object_dependent](https://user-images.githubusercontent.com/30506411/145876657-eee60d93-f63e-463f-923f-918a7c603eaf.png)
+
+### Background Dependent Classes
+![background_dependent](https://user-images.githubusercontent.com/30506411/145876676-3081527d-6976-49b2-b506-b3e46bb2c8a3.png)
 
 
 ## Presentation
