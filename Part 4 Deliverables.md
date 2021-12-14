@@ -23,7 +23,7 @@ The regular FGSM serves as a rough middle ground for a comparison of the two typ
 
 For Background focused FGSM perturbations, the most robust classes were doormat (0.92), barrow (0.73), maze (0.71), and then peacock (0.67). The most sensitive background FGSM classes were petri dish (8.88E-06), cassette player (0.00019), and dough (0.00049).
 
-For Object focused FGSM perturbations, the most robust classes were patio (0.80), jigsaw puzzle (0.75), bonnet (0.72), and wool (0.69). The most sensitive object foucsed classes were petri dish (1.08E-05), langur (0.00012), cassette player (0.00021), and dough (0.00066).
+For Object focused FGSM perturbations, the most robust classes were patio (0.80), jigsaw puzzle (0.75), bonnet (0.72), and wool (0.69). The most sensitive object focused classes were petri dish (1.08E-05), langur (0.00012), cassette player (0.00021), and dough (0.00066).
 
 If we compare these results to regular FGSM epsilon values from Tiny-ImageNet, we can see that our test database was much more robust (The top 3 most robust classes failed at 0.68, 0.53, 0.51 compared to 0.46, 0.37, 0.31). The test set also recorded much higher levels of sensitivity (The top 3 most sensitive classes failed at 9.20E-06, 0.0002, 0.0003 compared to 0.00002, 0.0004, and 0.0008), meaning even our most sensitive classes were more robust. Overall, these results are indicative of a better trained and more robust model. Again, these results were expected due to the training of ImageNet and the better quality images.
 
@@ -32,9 +32,9 @@ If we compare these results to regular FGSM epsilon values from Tiny-ImageNet, w
 
 > Most of you should see worse results on the test set when compared to the results obtained on train/validation sets. You should not be worried about that, but please provide the reasons why your solution performs worse (with a few illustrations, such as pictures or videos, what went wrong). What improvements would you make to lower the observed error rates? (5 points)
 
-Since we our evaluating the trusthworthiness of a pretrained model, it will be difficult to compare our results exactly with part 3. These results are expected to be more expansive and better representative than our previous developments. However, these results shed light on how the model is making its classifications and the model's performance as a whole. First, our results show a distribution of average failed epsilon values. These can be understood as how "robust" the models are to inputs that maximize their loss functions w.r.t. each class label. Using Gradient Class Activiation Mappings, we focused the perturbations unequally to reflect greater epsilon values (or step values) for either the object or the background. As stated previously, we expected the background distributions to be shifted towards the right, and the object distributions to be shifted towards the left (in comparison to the regular FGSM distributions). This is exactly what we saw in our Part 4 results. We can use these distributions to develop a metric to assess the changes in epsilon values from the object to the background. For a robust class, we hope to see a great difference between these two values. Once we have a distribution of the classification space, we can add our metrics to assess the robustness of each and every class.
+Since we our evaluating the trustworthiness of a pretrained model, it will be difficult to compare our results exactly with part 3. These results are expected to be more expansive and better representative than our previous developments. However, these results shed light on how the model is making its classifications and the model's performance as a whole. First, our results show a distribution of average failed epsilon values. These can be understood as how "robust" the models are to inputs that maximize their loss functions w.r.t. each class label. Using Gradient Class Activation Mappings, we focused the perturbations unequally to reflect greater epsilon values (or step values) for either the object or the background. As stated previously, we expected the background distributions to be shifted towards the right, and the object distributions to be shifted towards the left (in comparison to the regular FGSM distributions). This is exactly what we saw in our Part 4 results. We can use these distributions to develop a metric to assess the changes in epsilon values from the object to the background. For a robust class, we hope to see a great difference between these two values. Once we have a distribution of the classification space, we can add our metrics to assess the robustness of each and every class.
 
-These test scripts should be run 8-12 times to get a proper distribution of the relative robustness. Additionally, these distributions can be compared to other popular models to access the trustworthiness of each model and its training. We acknowedge that our experiments are one angle of addressing trustworthiness, and thus incomplete alone. However, we believe this is a starting point to evaluate model trustworthiness and ensure intelligently trained models for the future. 
+These test scripts should be run 8-12 times to get a proper distribution of the relative robustness. Additionally, these distributions can be compared to other popular models to access the trustworthiness of each model and its training. We acknowledge that our experiments are one angle of addressing trustworthiness, and thus incomplete alone. However, we believe this is a starting point to evaluate model trustworthiness and ensure intelligently trained models for the future. 
 
 
 ### Most Robust Regular FGSM Classes
@@ -95,7 +95,7 @@ https://docs.google.com/presentation/d/107tTgQ9NW03ETU0Qzd20T9sshafNEGhtClaim0LZ
 ## Folder Structure Diagram
 ![Screenshot from 2021-12-13 15-20-48](https://user-images.githubusercontent.com/30506411/145882994-49bfc24e-4bbc-44f1-9ed8-a4ff47936263.png)
 
-The example codes can be found under ./Example Codes in the main directory. The test scripts can be found under ./test scripts. The above graphic represents the appropiate folder structure and files to run the example code. Due note there are a few changes. The first change in these codes are the second for loop, where the line:
+The example codes can be found under ./Example Codes in the main directory. The test scripts can be found under ./test scripts. The above graphic represents the appropriate folder structure and files to run the example code. Due note there are a few changes. The first change in these codes are the second for loop, where the line:
 
 for file in resample(files, n_samples=5, replace=False, random_state=1):
 
@@ -105,11 +105,11 @@ for files in files:
 
 This line reflects only one sample class and one sample image, instead of sampling 5 images from every class. Additionally, the val_blurred directory has only a sample class and image, not the entire ImageNet validation set. The only difference between the sample codes and test codes are the above line and expanded database.
 
-The conda environment used to run these scripts can be found under adv_requirements.txt. This shows all necessary dependencies and can ease the burden of creating the appropiate conda environments.
+The conda environment used to run these scripts can be found under adv_requirements.txt. This shows all necessary dependencies and can ease the burden of creating the appropriate conda environments.
 
 ## File Details
-- main.py files are the appropiate test scripts. Each main file has be organized under its respective attack (background, object, regular).
-- imagenet_labels.txt reflect the appropiate classes, numeric index, name index, and respective image labels
+- main.py files are the appropriate test scripts. Each main file has be organized under its respective attack (background, object, regular).
+- imagenet_labels.txt reflect the appropriate classes, numeric index, name index, and respective image labels
 - adx_requirements.txt shows all the necessary conda dependencies
 - n15075141 shows the directory for toilet_tissue
 - ILSVRC2012_val_00006482.jpg shows a sample image for toilet_tissue
